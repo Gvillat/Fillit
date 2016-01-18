@@ -6,11 +6,11 @@
 /*   By: ppetit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 15:45:49 by ppetit            #+#    #+#             */
-/*   Updated: 2016/01/18 17:12:18 by ppetit           ###   ########.fr       */
+/*   Updated: 2016/01/18 17:54:24 by ppetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../sources/fillit.h"
+#include "../includes/fillit.h"
 
 void	ft_clean_map(t_tetris *tetris, char **map, int sqr_sze)
 {
@@ -23,9 +23,10 @@ void	ft_clean_map(t_tetris *tetris, char **map, int sqr_sze)
 	{
 		if (map[cur / sqr_sze][cur % sqr_sze] == tetris->letter)
 		{
-			map[cur / sqr_sze][cur % sqr_sze] == '.';
+			map[cur / sqr_sze][cur % sqr_sze] = '.';
 			cnt++;
 		}
+		cur++;
 	}
 }
 

@@ -6,11 +6,11 @@
 /*   By: ppetit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 15:27:33 by ppetit            #+#    #+#             */
-/*   Updated: 2016/01/18 15:42:20 by ppetit           ###   ########.fr       */
+/*   Updated: 2016/01/18 17:41:24 by ppetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../sources/fillit.h"
+#include "../includes/fillit.h"
 
 int		ft_bsq(int nb)
 {
@@ -55,6 +55,6 @@ void	ft_display(char **map, int sqr_sze)
 		}
 		i++;
 		j = 0;
-		write(1, '\n', 1);
+		write(1, "\n", 1);
 	}
 }

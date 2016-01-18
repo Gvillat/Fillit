@@ -6,7 +6,7 @@
 /*   By: ppetit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 15:12:36 by ppetit            #+#    #+#             */
-/*   Updated: 2016/01/18 15:26:27 by ppetit           ###   ########.fr       */
+/*   Updated: 2016/01/18 17:55:23 by ppetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,34 @@ int		ft_contiguity(int x, int y, int x_p0, int y_p0)
 	return (1);
 }
 
-int		ft_p1(char *buf, t_tetris *tetris, int x_p0, int y _p0)
+int		ft_p1(char *buf, t_tetris *tetris, int x_p0, int y_p0)
 {
 	int cur;
 	int sharps;
 
 	if (tetris == NULL)
 		return (0);
-	cur = 0;
+	cur = -1;
 	sharps = 0;
 	while (sharps != 2)
-		if (buf[cur++] == '#')
+		if (buf[++cur] == '#')
 			sharps++;
 	tetris->p1[0] = cur % 5 - x_p0;
 	tetris->p1[1] = cur / 5 - y_p0;
 	return (ft_contiguity(tetris->p1[0], tetris->p1[1], 0, 0));
 }
 
-int		ft_p2(char *buf, t_tetris *tetris, int x_p0, int y _p0)
+int		ft_p2(char *buf, t_tetris *tetris, int x_p0, int y_p0)
 {
 	int cur;
 	int sharps;
 
 	if (tetris == NULL)
 		return (0);
-	cur = 0;
+	cur = -1;
 	sharps = 0;
 	while (sharps != 3)
-		if (buf[cur++] == '#')
+		if (buf[++cur] == '#')
 			sharps++;
 	tetris->p2[0] = cur % 5 - x_p0;
 	tetris->p2[1] = cur / 5 - y_p0;
@@ -62,17 +62,17 @@ int		ft_p2(char *buf, t_tetris *tetris, int x_p0, int y _p0)
 			   tetris->p1[1]));
 }
 
-int		ft_p3(char *buf, t_tetris *tetris, int x_p0, int y _p0)
+int		ft_p3(char *buf, t_tetris *tetris, int x_p0, int y_p0)
 {
 	int cur;
 	int sharps;
 
 	if (tetris == NULL)
 		return (0);
-	cur = 0;
+	cur = -1;
 	sharps = 0;
 	while (sharps != 4)
-		if (buf[cur++] == '#')
+		if (buf[++cur] == '#')
 			sharps++;
 	tetris->p3[0] = cur % 5 - x_p0;
 	tetris->p3[1] = cur / 5 - y_p0;
