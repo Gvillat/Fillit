@@ -6,7 +6,7 @@
 /*   By: gvillat <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 15:47:37 by gvillat           #+#    #+#             */
-/*   Updated: 2016/01/14 18:28:32 by gvillat          ###   ########.fr       */
+/*   Updated: 2016/01/18 15:44:55 by ppetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ t_tetris	*ft_line_check(char *buf, t_tetris *tetris)
 		cur++;
 		if (dots + sharps != 4)
 			return (NULL);
-		if (lines < 3 && sharps > 0 && sharps < 4 && !(buf[cur] == '#' || buf[cur + 1] == '#' || buf[cur + 2] == '#' ||	buf[cur + 3] == '#'))
+		if (lines < 3 && sharps > 0 && sharps < 4 && !(buf[cur] == '#' ||
+				buf[cur + 1] == '#' || buf[cur + 2] == '#' ||
+				buf[cur + 3] == '#'))
 			return (NULL);
 	}
 	return (tetris);
@@ -51,7 +53,8 @@ t_tetris	*ft_char_check(char *buf, t_tetris *tetris)
 	dots = 0;
 	sharps = 0;
 	lines = 0;
-	while (buf[cur++] && (buf[cur] == '.' || buf[cur] == '#' ||	buf[cur] == '\n'))
+	while (buf[cur++] && (buf[cur] == '.' || buf[cur] == '#' ||
+				buf[cur] == '\n'))
 	{
 		if (buf[cur] == '.')
 			dots++;
@@ -60,7 +63,8 @@ t_tetris	*ft_char_check(char *buf, t_tetris *tetris)
 		if (buf[cur] == '\n')
 			lines++;
 	}
-	if (!(dots == 12 && sharps == 4 && buf[19] == '\n') && (!(lines == 5) || !(lines == 4 && buf[20] == '\0')))
+	if (!(dots == 12 && sharps == 4 && buf[19] == '\n') && (!(lines == 5) ||
+				!(lines == 4 && buf[20] == '\0')))
 		return (NULL);
 	if (ft_line_check(buf, tetris) == NULL)
 		return (NULL);
@@ -84,15 +88,3 @@ t_tetris	*ft_coordinate_check(char *buf, t_tetris *tetris)
 				return (tetris);
 	return (NULL);
 }
-
-
-
-
-
-
-
-
-
-
-}
-

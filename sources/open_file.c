@@ -6,7 +6,7 @@
 /*   By: gvillat <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 15:05:08 by gvillat           #+#    #+#             */
-/*   Updated: 2016/01/14 17:09:25 by gvillat          ###   ########.fr       */
+/*   Updated: 2016/01/18 16:26:04 by ppetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,24 @@ t_tetris	*ft_read_buf(char *file, int *pcs)
 		return (NULL)
 	tetris_map[*pcs].letter = '|';
 	return (tetris_map);
+}
+
+int		ft_check_last(char *file_name, int pcs)
+{
+	char	*buf;
+	int		fd;
+
+	if ((buf = (char*)malloc(sizeof(char) * (BUFF *pcs + 1))) == NULL)
+		return (0);
+	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
+		return (0);
+	buf[BUFF * pcs + 1] = '\0';
+	while ((read(fd, buf, BUFF * pcs)) >= 0)
+	{
+		if (buf[BUFF * pcs - 1] == '\0' && buf[BUFF * pcs - 2] == '\n' &&
+				(buf[BUFF * pcs - 3] == '.' | buf[BUFF * pcs - 3] == '#'))
+			return (1);
+	}
+	free(buf);
+	return (0);
 }
